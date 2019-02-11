@@ -1,0 +1,31 @@
+<h1>Create new snippet</h1>
+
+
+<form action="/snippets/new" method="post" enctype="multipart/form-data">
+  <label for="title">Title</label>
+  <input type="text" id="title" name="title" placeholder="title of the snippet">
+  <br><br>
+  <label for="language">Language</label>
+  <select name="language" id="language">
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JS">JavaScript</option>
+  </select>
+  <br><br>
+  <label for="code">Code snippet</label>
+  <br>
+  <textarea name="code" id="code" cols="30" rows="10"></textarea>
+  <br><br>
+  <label for="description">description</label>
+  <br>
+  <textarea name="description" id="description" cols="30" rows="10"></textarea>
+  <br><br>
+  <label for="source">Source</label>
+  <input type="text" id="source" name="source" placeholder="(optional) where did you get the snippet?">
+  <br><br>
+  <label for="image">Image</label>
+  <input type="file" name="image" id="image">
+  <br><br>
+  <button>Create new snippet</button>
+
+</form>

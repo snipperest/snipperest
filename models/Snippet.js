@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const snippetSchema = new Schema({
+  title: String,
   language: String,
   code: String,
   description: String,

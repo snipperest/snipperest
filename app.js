@@ -82,7 +82,7 @@ const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
 const snippetRoutes = require('./routes/snippet');
-app.use('/snippets', authRoutes);
+app.use('/snippets', snippetRoutes);
 
 
 module.exports = app;

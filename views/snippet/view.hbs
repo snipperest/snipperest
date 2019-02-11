@@ -1,0 +1,17 @@
+<h1>{{snippet.title}}</h1>
+<p>Created by: {{snippet.creator.username}}</p>
+{{#if snippet.pic.picPath}}
+<img src="{{snippet.pic.picPath}}" alt="{{snippet.pic.picName}}">
+{{/if}}
+<p>Language: {{snippet.language}}</p>
+<p>{{snippet.description}}</p>
+<p>{{snippet.code}}</p>
+{{#if snippet.source}}
+<p>Source: <a href="{{snippet.source}}">{{snippet.source}}</a></p>
+{{/if}}
+
+<form action="/snippets/{{snippet._id}}/edit" method="GET">
+  <button>Edit snippet</button></form>
+
+<form action="/snippets/{{snippet._id}}/{{snippet.creator._id}}/delete" method="POST">
+  <button>Delete snippet</button></form>

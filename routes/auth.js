@@ -70,7 +70,7 @@ router.get("/edit", ensureLogin.ensureLoggedIn("login"), (req, res, next) => {
 
 //edit users
 router.post('/:id/edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  if (req.params.id === req.session.passport.user) {
+  if (req.params.id == req.session.passport.user) {
     let { username, email, password } = req.body
     if (password === "") {
       // User.findByIdAndUpdate(req.params.id, req.body)
