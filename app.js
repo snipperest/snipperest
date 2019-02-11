@@ -8,10 +8,12 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
-
+const passport      = require('passport');
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
+
+
 
 
 mongoose
@@ -61,7 +63,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Snipperest';
 
 
 // Enable authentication using session + passport
@@ -83,6 +85,20 @@ app.use('/auth', authRoutes);
 
 const snippetRoutes = require('./routes/snippet');
 app.use('/snippets', snippetRoutes);
+
+
+
+//Social Login
+app.get('/auth/github',
+passport.authenticate('github'));
+
+app.get('/auth/github/callback', 
+passport.authenticate('github', { failureRedirect: '/login' }),
+function(req, res) {
+// Successful authentication, redirect home.
+res.redirect('/');
+});
+  
 
 
 module.exports = app;
