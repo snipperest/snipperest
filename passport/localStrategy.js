@@ -4,6 +4,7 @@ const User          = require('../models/User');
 const bcrypt        = require('bcrypt');
 
 passport.use(new LocalStrategy({
+    passReqToCallback: true,
     usernameField: 'username',
     passwordField: 'password'
   }, 

@@ -110,4 +110,10 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+router.get("/github", passport.authenticate("github"));
+router.get("/github/callback", passport.authenticate("github", {
+  successRedirect: "/",
+  failureRedirect: "/login"
+}));
+
 module.exports = router;
