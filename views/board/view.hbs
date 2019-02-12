@@ -1,0 +1,8 @@
+<h1>{{board.name}}</h1>
+<p>Created by: {{board.creator.username}}</p>
+
+<form action="/boards/{{board._id}}/edit" method="GET">
+  <button>Edit board</button></form>
+
+<form action="/boards/{{board._id}}/{{board.creator._id}}/delete" method="POST">
+  <button>Delete board</button></form>

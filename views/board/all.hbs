@@ -1,0 +1,9 @@
+<h1>All boards</h1>
+{{#each boards}}
+<div>
+  <h2>{{this.name}}</h2>
+  <p>Created by: {{this.creator.username}}</p>
+  <a href="/boards/{{this.id}}">Open board</a>
+</div>
+<hr>
+{{/each}}

@@ -40,7 +40,7 @@ router.post("/new", ensureLogin.ensureLoggedIn("/auth/login"), upload.single("im
     creator: req.user._id
   })
 
-  newSnippet.save(res.redirect("/"))
+  newSnippet.save(res.redirect("/snippets"))
 })
 
 router.get("/:id", (req, res, next) => {
@@ -93,6 +93,8 @@ router.post("/:id/createdby/:creatorID/edit", ensureLogin.ensureLoggedIn("/auth/
       }).then(res.redirect("/snippets/" + req.params.id))
         .catch(error => console.log())
     }
+  } else {
+    res.redirect("/auth/login")
   }
 
 })
