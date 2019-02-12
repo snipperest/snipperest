@@ -4,6 +4,7 @@ const router = express.Router();
 const multer = require("multer")
 const upload = multer({ dest: "./public/uploads" })
 const Board = require("../models/Board");
+const Snippet = require("../models/Snippet")
 const ensureLogin = require("connect-ensure-login")
 
 router.get("/", (req, res, next) => {
@@ -30,9 +31,18 @@ router.post("/new", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, next) 
 
 
 router.get("/:id", (req, res, next) => {
+
   Board.findById(req.params.id)
     .populate("creator")
-    .then(board => res.render("board/view", { board }))
+    .then(board => {
+      Snippet.find({ board: req.params.id })
+        .then(snippets => {
+          res.render("board/view", { board, snippets })
+        }
+        )
+        .catch(error => console.log(error))
+    }
+    )
     .catch(error => console.log(error))
 })
 
@@ -63,7 +73,12 @@ router.post("/:id/createdby/:creatorID/edit", ensureLogin.ensureLoggedIn("/auth/
 router.post("/:id/:creatorID/delete", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, next) => {
   if (req.params.creatorID === req.session.passport.user) {
     Board.findByIdAndDelete(req.params.id)
-      .then(res.redirect("/boards"))
+      .then(() => {
+        Snippet.deleteMany({ board: req.params.id })
+          .then(msg => console.log("Yay! " + msg))
+          .catch(error => console.log("Error! " + error))
+        res.redirect("/boards")
+      })
       .catch(error => console.log(error))
   } else {
     res.redirect("/auth/login")

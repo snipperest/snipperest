@@ -11,6 +11,13 @@
     <option value="JS">JavaScript</option>
   </select>
   <br><br>
+  <label for="board">Board</label>
+  <select name="board" id="board">
+    {{#each boards}}
+    <option value="{{this.id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  <br><br>
   <label for="code">Code snippet</label>
   <br>
   <textarea name="code" id="code" cols="30" rows="10">{{snippet.code}}</textarea>
@@ -32,18 +39,21 @@
 <script>
   const languageSelected = "{{ snippet.language }}"
 
+
   let languageOptions = document.getElementById("language").querySelectorAll("option")
 
   languageOptions.forEach(language => {
     if (language.value === languageSelected) language.setAttribute("selected", "selected")
   })
 
+  const boardSelected = "{{ snippet.board }}"
+  console.log(boardSelected)
 
-
-
-
-
-
+  let boardOptions = document.getElementById("board").querySelectorAll("option")
+  console.log(boardOptions)
+  boardOptions.forEach(board => {
+    if (board.value === boardSelected) board.setAttribute("selected", "selected")
+  })
 
 
 </script>

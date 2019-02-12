@@ -9,7 +9,7 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 //render login page
-router.get("/login", (req, res, next) => {
+router.get("/login", ensureLogin.ensureLoggedOut(), (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
 

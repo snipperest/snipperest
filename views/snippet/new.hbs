@@ -23,6 +23,13 @@
   <label for="source">Source</label>
   <input type="text" id="source" name="source" placeholder="(optional) where did you get the snippet?">
   <br><br>
+  <label for="board">Board</label>
+  <select name="board" id="board">
+    {{#each boards}}
+    <option value="{{this.id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  <br><br>
   <label for="image">Image</label>
   <input type="file" name="image" id="image">
   <br><br>

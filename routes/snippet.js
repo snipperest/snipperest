@@ -4,20 +4,27 @@ const router = express.Router();
 const multer = require("multer")
 const upload = multer({ dest: "./public/uploads" })
 const Snippet = require("../models/Snippet");
+const Board = require("../models/Board");
 const ensureLogin = require("connect-ensure-login")
 
 router.get("/", (req, res, next) => {
   Snippet.find()
+    .populate("board")
     .then(snippets => res.render("snippet/all", { snippets }))
     .catch(error => console.log(error))
 })
 
 router.get("/new", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, next) => {
-  res.render("snippet/new")
+  Board.find({ creator: req.session.passport.user })
+    .then(boards => {
+      res.render("snippet/new", { boards })
+    })
+    .catch(error => console.log(error))
+
 })
 
 router.post("/new", ensureLogin.ensureLoggedIn("/auth/login"), upload.single("image"), (req, res, next) => {
-  const { title, language, code, description, source } = req.body
+  const { title, language, code, description, source, board } = req.body
   let picPath
   let picName
   if (req.file) {
@@ -37,15 +44,19 @@ router.post("/new", ensureLogin.ensureLoggedIn("/auth/login"), upload.single("im
       picName
     },
     source,
-    creator: req.user._id
+    creator: req.user._id,
+    board
   })
 
-  newSnippet.save(res.redirect("/snippets"))
+  newSnippet.save(() => {
+    res.redirect("/snippets")
+  })
 })
 
 router.get("/:id", (req, res, next) => {
   Snippet.findById(req.params.id)
     .populate("creator")
+    .populate("board")
     .then(snippet => res.render("snippet/view", { snippet }))
     .catch(error => console.log(error))
 })
@@ -57,7 +68,10 @@ router.get("/:id/edit", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, ne
       if (snippet.creator._id != req.session.passport.user) {
         res.redirect("/snippets")
       } else {
-        res.render("snippet/edit", { snippet })
+        Board.find({ creator: req.session.passport.user })
+          .then(boards => res.render("snippet/edit", { snippet, boards }))
+          .catch(error => console.log(error))
+
       }
     })
     .catch(error => console.log(error))
@@ -65,7 +79,7 @@ router.get("/:id/edit", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, ne
 
 router.post("/:id/createdby/:creatorID/edit", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, next) => {
   if (req.params.creatorID == req.session.passport.user) {
-    let { title, language, code, description, source } = req.body
+    let { title, language, code, description, source, board } = req.body
 
     if (req.file) {
       let picPath = `/uploads/${req.file.filename}`
@@ -81,6 +95,7 @@ router.post("/:id/createdby/:creatorID/edit", ensureLogin.ensureLoggedIn("/auth/
           picName
         },
         source,
+        board
       }).then(res.redirect("/snippets/" + req.params.id))
         .catch(error => console.log())
     } else {
@@ -90,6 +105,7 @@ router.post("/:id/createdby/:creatorID/edit", ensureLogin.ensureLoggedIn("/auth/
         code,
         description,
         source,
+        board
       }).then(res.redirect("/snippets/" + req.params.id))
         .catch(error => console.log())
     }
@@ -105,6 +121,8 @@ router.post("/:id/:creatorID/delete", ensureLogin.ensureLoggedIn("/auth/login"),
     Snippet.findByIdAndDelete(req.params.id)
       .then(res.redirect("/snippets"))
       .catch(error => console.log(error))
+  } else {
+    res.redirect("/auth/login")
   }
 })
 

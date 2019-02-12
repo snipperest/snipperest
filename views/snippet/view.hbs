@@ -4,8 +4,9 @@
 <img src="{{snippet.pic.picPath}}" alt="{{snippet.pic.picName}}">
 {{/if}}
 <p>Language: {{snippet.language}}</p>
-<p>{{snippet.description}}</p>
-<p>{{snippet.code}}</p>
+<p>Description: {{snippet.description}}</p>
+<p>Code: {{snippet.code}}</p>
+<p>Board: {{snippet.board.name}}</p>
 {{#if snippet.source}}
 <p>Source: <a href="{{snippet.source}}">{{snippet.source}}</a></p>
 {{/if}}

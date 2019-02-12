@@ -1,5 +1,11 @@
 <h1>{{board.name}}</h1>
 <p>Created by: {{board.creator.username}}</p>
+<h3>Snippets</h3>
+<ul>
+  {{#each snippets}}
+  <li>{{this.title}} | <a href="/snippets/{{this._id}}" target="_blank">Open snippet</a></li>
+  {{/each}}
+</ul>
 
 <form action="/boards/{{board._id}}/edit" method="GET">
   <button>Edit board</button></form>

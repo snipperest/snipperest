@@ -12,6 +12,7 @@ const snippetSchema = new Schema({
     picName: String
   },
   source: String,
+  board: { type: Schema.Types.ObjectId, ref: "Board" },
   creator: { type: Schema.Types.ObjectId, ref: "User" }
 },
   {
