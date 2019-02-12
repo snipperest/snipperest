@@ -8,7 +8,7 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
-const passport      = require('passport');
+const passport = require('passport');
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
@@ -86,19 +86,20 @@ app.use('/auth', authRoutes);
 const snippetRoutes = require('./routes/snippet');
 app.use('/snippets', snippetRoutes);
 
-
+const boardRoutes = require('./routes/board');
+app.use('/boards', boardRoutes);
 
 //Social Login
 app.get('/auth/github',
-passport.authenticate('github'));
+  passport.authenticate('github'));
 
-app.get('/auth/github/callback', 
-passport.authenticate('github', { failureRedirect: '/login' }),
-function(req, res) {
-// Successful authentication, redirect home.
-res.redirect('/');
-});
-  
+app.get('/auth/github/callback',
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
 
 
 module.exports = app;
