@@ -8,44 +8,17 @@
   <title>{{title}}</title>
  
  
+ 
+  
+  
+
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/dracula.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/ambiance.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/3024-day.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/3024-nigth.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/abcdef.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/bespin.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/blackboard.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/cobalt.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/duotone-dark.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/duotone-light.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/aclipse.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/gruvbox-dark.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/erlang-dark.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/isotope.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/hospcotch.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/icecoder.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/idea.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/neo.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/monkai.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/seti.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/seti.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/rubyblue.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/railscasts.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/paraiso-dark.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/paraiso-ligth.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/pastel-on-dark.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/mbo.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/material.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/lucario.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/panda-syntax.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/lesser-dark.css">
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/codemirror.min.css" 
   integrity="sha384-Emjcn3QHkP2VdU4RooUiFc08IB3MxUhOIKysa338K0FaWAVuskkkLe7eNkXso/YH" crossorigin="anonymous">
   <link rel="shortcut icon" type="/image/png" href="/images/snipperest.png">
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+
 </head>
   
 <body>
@@ -54,20 +27,23 @@
 
 
   <nav>
-    <a href="/">Home</a>
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
-    <a href="/auth/logout">Logout</a>
-    <a href="/auth/edit">Edit your user</a>
-
-  </nav>
+    <ul class="Quick-navigation">
+    <li><a href="/" class="Quick-navigation-item">Home</a></li>
+    <li> <a href="/auth/login" class="Quick-navigation-item">Login</a></li>
+    <li><a href="/auth/signup" class="Quick-navigation-item">Signup</a></li>
+    <li><a href="/auth/logout" class="Quick-navigation-item">Logout</a></li>
+    </ul>
+    
+    
+ 
   <br>
+  
   <nav>
+    <nav>
     <a href="/snippets">All snippets</a>
     <a href="/snippets/new">New snippet</a>
   </nav>
   <br>
-  <nav>
     <a href="/boards">All boards</a>
     <a href="/boards/new">New board</a>
   </nav>
@@ -77,7 +53,7 @@
   <script src="/javascripts/script.js"></script>
 
   </script>
-  <link rel=stylesheet href="../doc/docs.css">
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/addon/edit/closebrackets.js.map">
    
@@ -88,6 +64,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/clike/clike.min.js" integrity="sha384-8+bTF1tFTP2p6v5mvLYGHHXlsP1vvv2VZ1G9m7ItQ0h9cmnSkLjMu1MU0awC2Vnp" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/pegjs/pegjs.min.js" integrity="sha384-ydJmJY1nFH/5/OUYmAXyo+B/XKfnymKtFz+GaYG+84yf2sWTKwnErWnSxoZc+ob7" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/javascript/javascript.min.js" integrity="sha384-g7R5zn/n5KHtJr96K6OEZz4n/MzoKFsr9ncytZcrGoGw+xO1L1JtqjNg/zxLFEIP" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/javascript/css.min.js" integrity="sha384-g7R5zn/n5KHtJr96K6OEZz4n/MzoKFsr9ncytZcrGoGw+xO1L1JtqjNg/zxLFEIP" crossorigin="anonymous"></script>
 
 
 
@@ -97,26 +74,17 @@
   var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
     lineNumbers: true,
     styleActiveLine: true,
-    matchBrackets: true
-  });
-  var input = document.getElementById("select");
-  function selectTheme() {
-    var theme = input.options[input.selectedIndex].textContent;
-    editor.setOption("theme", theme);
-    location.hash = "#" + theme;
-  }
-  var choice = (location.hash && location.hash.slice(1)) ||
-              (document.location.search &&
-                decodeURIComponent(document.location.search.slice(1)));
-  if (choice) {
-    input.value = choice;
-    editor.setOption("theme", choice);
-  }
-  CodeMirror.on(window, "hashchange", function() {
-    var theme = location.hash.slice(1);
-    if (theme) { input.value = theme; selectTheme(); }
-  });
+    matchBrackets: true,
+    theme: "dracula",
+  
+   
+    });
+   
 </script>
+
+
+
+
 </body>
 
 </html>

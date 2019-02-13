@@ -9,6 +9,7 @@ passport.use(new GithubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
   }, (accessToken, refreshToken, profile ,done) => {
+    console.log(profile)
     
     User.findOne({GitHubId: profile.id })
     .then(user => {
@@ -18,7 +19,9 @@ passport.use(new GithubStrategy({
       }
   
       const newUser = new User({
-        GitHubId: profile.id
+        GitHubId: profile.id,
+        // photo: profile.photo,
+        username : profile.username
       });
   
       newUser.save()
