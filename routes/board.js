@@ -7,6 +7,7 @@ const Board = require("../models/Board");
 const Snippet = require("../models/Snippet")
 const ensureLogin = require("connect-ensure-login")
 
+
 router.get("/", (req, res, next) => {
   Board.find()
     .populate("creator")
