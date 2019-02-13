@@ -6,11 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
-  <link rel="shortcut icon" type="/image/png" href="/images/snipperest.png">
+
+
+
+
+
+
   <link rel="stylesheet" href="/stylesheets/style.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/dracula.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/codemirror.min.css"
+    integrity="sha384-Emjcn3QHkP2VdU4RooUiFc08IB3MxUhOIKysa338K0FaWAVuskkkLe7eNkXso/YH" crossorigin="anonymous">
+  <link rel="shortcut icon" type="/image/png" href="/images/snipperest.png">
+
 </head>
 
 <body>
+  {{#if userLogged}}
+  <p>Bienvenido, {{userLogged.username}}</p>
+  {{/if}}
 
   <nav>
     <a href="/">Home</a>
@@ -19,21 +33,95 @@
     <a href="/auth/logout">Logout</a>
     <a href="/auth/edit">Edit your user</a>
 
-  </nav>
-  <br>
-  <nav>
-    <a href="/snippets">All snippets</a>
-    <a href="/snippets/new">New snippet</a>
-  </nav>
-  <br>
-  <nav>
-    <a href="/boards">All boards</a>
-    <a href="/boards/new">New board</a>
-  </nav>
 
-  {{{body}}}
+    <nav>
+      <ul class="Quick-navigation">
+        <li><a href="/" class="Quick-navigation-item">Home</a></li>
+        <li> <a href="/auth/login" class="Quick-navigation-item">Login</a></li>
+        <li><a href="/auth/signup" class="Quick-navigation-item">Signup</a></li>
+        <li><a href="/auth/logout" class="Quick-navigation-item">Logout</a></li>
+      </ul>
 
-  <script src="/javascripts/script.js"></script>
+
+
+      <br>
+
+      <nav>
+        <nav>
+          <a href="/snippets">All snippets</a>
+          <a href="/snippets/new">New snippet</a>
+        </nav>
+        <br>
+        <a href="/boards">All boards</a>
+        <a href="/boards/new">New board</a>
+      </nav>
+
+      {{{body}}}
+
+      <script src="/javascripts/script.js"></script>
+
+      </script>
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/addon/edit/closebrackets.js.map">
+
+      </script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.3/lodash.min.js"
+        integrity="sha384-jsG12NEMqgAmlKLBiSdTZPy1CbxTUU2AykyyLMKaLCAIvk1bAmNXGkZ5pnJHmO/l"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/codemirror.min.js"
+        integrity="sha384-hoB2ZofsVhMdfGMWAUv7PlNjtUTmqLg4WLPWTZCOFl7H/Jig3OnOutQdW7if3B0q"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/clike/clike.min.js"
+        integrity="sha384-8+bTF1tFTP2p6v5mvLYGHHXlsP1vvv2VZ1G9m7ItQ0h9cmnSkLjMu1MU0awC2Vnp"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/pegjs/pegjs.min.js"
+        integrity="sha384-ydJmJY1nFH/5/OUYmAXyo+B/XKfnymKtFz+GaYG+84yf2sWTKwnErWnSxoZc+ob7"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/javascript/javascript.min.js"
+        integrity="sha384-g7R5zn/n5KHtJr96K6OEZz4n/MzoKFsr9ncytZcrGoGw+xO1L1JtqjNg/zxLFEIP"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/css/css.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/xml/xml.min.js"></script>
+
+
+
+
+
+      <script>
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+          lineNumbers: true,
+          styleActiveLine: true,
+          matchBrackets: true,
+          theme: "dracula",
+        });
+
+        editor.setOption("mode", "xml")
+
+        function changeMode(mode) {
+          let selectValue = mode.value
+          switch (selectValue) {
+            case "HTML":
+              editor.setOption("mode", "xml")
+              break
+            case "CSS":
+              editor.setOption("mode", "css")
+              break
+            case "JS":
+              editor.setOption("mode", "javascript")
+              break
+          }
+        }
+
+
+
+      </script>
+
+
+
+
 </body>
 
 </html>
