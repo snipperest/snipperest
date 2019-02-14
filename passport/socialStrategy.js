@@ -1,3 +1,4 @@
+require("dotenv").config()
 const passport = require('passport');
 const GithubStrategy = require('passport-github2').Strategy;
 const User = require('../models/User');
@@ -8,6 +9,7 @@ passport.use(new GithubStrategy({
   // passReqToCallback: true,
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: `${process.env.HOST}/auth/github/callback`
 }, (accessToken, refreshToken, profile, done) => {
   User.findOne({ GitHubId: profile.id })
     .then(user => {
