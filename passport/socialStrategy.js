@@ -9,7 +9,7 @@ passport.use(new GithubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
   }, (accessToken, refreshToken, profile ,done) => {
-    console.log(profile)
+  
     
     User.findOne({GitHubId: profile.id })
     .then(user => {

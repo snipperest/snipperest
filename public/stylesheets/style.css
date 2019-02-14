@@ -1,19 +1,16 @@
-ul {
+* {
+  box-sizing: content-box; }
+
+body {
+  background-color: #e7e7e7;
   margin: 0;
-  background-color: #69947b; }
-
-li {
-  color: white;
-  text-align: center;
-  letter-spacing: 1px;
-  display: inline-block;
-  width: 60px;
-  padding: 20px;
+  padding: 0;
   list-style: none;
-  text-decoration: none; }
-
-a {
   text-decoration: none;
-  color: #063d24; }
+  border: none;
+  outline: none; }
+
+.logoPrincipal {
+  margin: 20px; }
 
 /*# sourceMappingURL=style.css.map */
