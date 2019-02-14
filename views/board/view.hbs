@@ -3,12 +3,15 @@
 <h3>Snippets</h3>
 <ul>
   {{#each snippets}}
-  <li>{{this.title}} | <a href="/snippets/{{this._id}}" target="_blank">Open snippet</a></li>
+  {{> snippetCard}}
   {{/each}}
 </ul>
 
-<form action="/boards/{{board._id}}/edit" method="GET">
-  <button>Edit board</button></form>
+<div class="snippet-buttons">
 
-<form action="/boards/{{board._id}}/{{board.creator._id}}/delete" method="POST">
-  <button>Delete board</button></form>
+  <form action="/boards/{{board._id}}/edit" method="GET">
+    <button class="edit-button">Edit board</button></form>
+
+  <form action="/boards/{{board._id}}/{{board.creator._id}}/delete" method="POST">
+    <button class="delete-button">Delete board</button></form>
+</div>

@@ -1,7 +1,7 @@
-<h1>Edit board</h1>
+<h1 class="snippet-title">Edit board</h1>
 
 <form action="/boards/{{board._id}}/createdby/{{board.creator._id}}/edit" method="POST">
   <label for="name">Name</label>
-  <input type="text" id="name" name="name" value="{{board.name}}">
-  <button>Save changes</button>
+  <input class="form-text-input" type="text" id="name" name="name" value="{{board.name}}">
+  <button class="form-button new-board">Save changes</button>
 </form>

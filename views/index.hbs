@@ -1,5 +1,10 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="index-buttons">
+  {{#if userLogged}}
+  <a class="new-snippet-button" href="snippets/new">Create new snippet</a>
+  <a class="new-board-button" href="boards/new">Create new board</a>
+  {{/if }}
+</div>
+
 
 <div class="card-container">
   {{#each snippets}}

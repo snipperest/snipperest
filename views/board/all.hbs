@@ -1,9 +1,11 @@
-<h1>All boards</h1>
-{{#each boards}}
-<div>
-  <h2>{{this.name}}</h2>
-  <p>Created by: {{this.creator.username}}</p>
-  <a href="/boards/{{this.id}}">Open board</a>
+<h1 class="boards-title">All boards</h1>
+<div class="boards-container">
+  {{#each boards}}
+  <div class="snippet-card board-card">
+    <h3>{{this.name}}</h3>
+    <p class="card-language">Created by: {{this.creator.username}}</p>
+    <a class="open-snippets" href="/boards/{{this.id}}">Open board</a>
+  </div>
+  {{/each}}
+
 </div>
-<hr>
-{{/each}}

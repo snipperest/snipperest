@@ -1,29 +1,25 @@
-<h2>Edit your user</h2>
+<h1 class="auth-title">Edit your user</h1>
 
-<form action="/auth/{{user._id}}/edit" method="POST" id="form-container">
+<form class="auth-form" action="/auth/{{user._id}}/edit" method="POST" id="form-container">
   <label for="username">Username</label>
-  <input id="username" type="text" name="username" value="{{user.username}}">
-
-  <br><br>
+  <input class="form-text-input" id="username" type="text" name="username" value="{{user.username}}">
 
   <label for="email">Email address</label>
-  <input id="email" type="email" name="email" value="{{user.email}}">
+  <input class="form-text-input" id="email" type="email" name="email" value="{{user.email}}">
 
-  <br><br>
 
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="*****">
-  <br>
+  <input class="form-text-input" id="password" type="password" name="password" placeholder="*****">
+
   {{#if message }}
   <div class="error-message">{{ message }}</div>
   {{/if}}
 
-  <br><br>
 
-  <button>Save changes</button>
+  <button class="auth-button">Save changes</button>
 </form>
 
 
-<form action="/auth/{{user.id}}/delete" method="POST">
-  <button>Delete my user</button>
+<form class="auth-form" action="/auth/{{user.id}}/delete" method="POST">
+  <button class="auth-button delete-user">Delete my user</button>
 </form>

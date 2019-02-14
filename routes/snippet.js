@@ -6,10 +6,7 @@ const Board = require("../models/Board");
 const ensureLogin = require("connect-ensure-login")
 
 router.get("/", (req, res, next) => {
-  Snippet.find()
-    .populate("board")
-    .then(snippets => res.render("snippet/all", { snippets }))
-    .catch(error => console.log(error))
+  res.redirect("/")
 })
 
 router.get("/new", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, next) => {
