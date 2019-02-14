@@ -6,12 +6,24 @@
   <input type="text" id="title" name="title" placeholder="title of the snippet">
   <br><br>
   <label for="language">Language</label>
+<<<<<<< HEAD
   <select name="language" id="language">
     <p>Code: </p>
    <textarea name="code" id="code"  cols="30" rows="10">
   {{snippet.code}}
 </textarea>
  
+=======
+  <select name="language" id="language" onchange="changeMode(this)">
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JS">JavaScript</option>
+  </select>
+  <br><br>
+  <label for="code">Code snippet</label>
+  <br>
+  <textarea name="code" id="code" cols="30" rows="10"></textarea>
+>>>>>>> d72860d95d9b42f8ea42157d24f807c5e2cfecf9
   <br><br>
   <label for="description">description</label>
   <br>
