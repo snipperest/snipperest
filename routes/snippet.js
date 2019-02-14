@@ -24,6 +24,8 @@ router.get("/new", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, next) =
 router.post("/new", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, next) => {
   const { title, language, code, description, source, board } = req.body
 
+  console.log(req.body)
+
   const newSnippet = new Snippet({
     title,
     language,
@@ -33,6 +35,8 @@ router.post("/new", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, next) 
     creator: req.user._id,
     board
   })
+
+
 
   newSnippet.save(() => {
     res.redirect("/snippets")
