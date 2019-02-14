@@ -1,11 +1,11 @@
-<h1>Edit snippet</h1>
+<h1 class="snippet-title">Edit snippet</h1>
 
 <form action="/snippets/{{snippet._id}}/createdby/{{snippet.creator._id}}/edit" method="POST">
   <label for="title">Title</label>
   <input type="text" id="title" name="title" value="{{snippet.title}}">
   <br><br>
   <label for="language">Language</label>
-  <select name="language" id="language">
+  <select name="language" id="language" onchange="changeMode(this)">
     <option value="HTML">HTML</option>
     <option value="CSS">CSS</option>
     <option value="JS">JavaScript</option>
@@ -29,12 +29,8 @@
   <label for="source">Source</label>
   <input type="text" id="source" name="source" value="{{snippet.source}}">
   <br><br>
-  <label for="image">Image</label>
-  <input type="file" name="image" id="image">
-  <br><br>
   <button>Save changes</button>
 </form>
-
 
 <script>
   const languageSelected = "{{ snippet.language }}"
@@ -47,12 +43,12 @@
   })
 
   const boardSelected = "{{ snippet.board }}"
-  console.log(boardSelected)
 
   let boardOptions = document.getElementById("board").querySelectorAll("option")
-  console.log(boardOptions)
   boardOptions.forEach(board => {
     if (board.value === boardSelected) board.setAttribute("selected", "selected")
   })
+</script>
 
 
+<script src="/javascripts/edit-snippet.js"></script>

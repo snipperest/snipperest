@@ -6,52 +6,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
-
-
-
-
-
-
   <link rel="stylesheet" href="/stylesheets/style.css" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/dracula.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/abcdef.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/codemirror.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/addon/edit/closebrackets.js.map"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.3/lodash.min.js"
+    integrity="sha384-jsG12NEMqgAmlKLBiSdTZPy1CbxTUU2AykyyLMKaLCAIvk1bAmNXGkZ5pnJHmO/l"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/codemirror.min.js"
+    integrity="sha384-hoB2ZofsVhMdfGMWAUv7PlNjtUTmqLg4WLPWTZCOFl7H/Jig3OnOutQdW7if3B0q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/clike/clike.min.js"
+    integrity="sha384-8+bTF1tFTP2p6v5mvLYGHHXlsP1vvv2VZ1G9m7ItQ0h9cmnSkLjMu1MU0awC2Vnp"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/pegjs/pegjs.min.js"
+    integrity="sha384-ydJmJY1nFH/5/OUYmAXyo+B/XKfnymKtFz+GaYG+84yf2sWTKwnErWnSxoZc+ob7"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/javascript/javascript.min.js"
+    integrity="sha384-g7R5zn/n5KHtJr96K6OEZz4n/MzoKFsr9ncytZcrGoGw+xO1L1JtqjNg/zxLFEIP"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/xml/xml.min.js"></script>
+
 
 </head>
 
 <body>
-  
-
-
-
-    <nav class="menu"> 
-      <div class="logo-container">
-        <img src="images/logo-completo-claro.png" alt="" class="logo">
-      </div>
-      {{#if userLogged}}
-      <ul class="menu-items">
-       <li class="menu-item">Bienvenido, <span class="username">{{userLogged.username}}</span></li> 
+  <nav class="menu">
+    <div class="logo-container">
+      <a href="/"><img src="/images/logo-completo-claro.png" alt="" class="logo"></a>
+    </div>
+    {{#if userLogged}}
+    <ul class="menu-items">
+      <li class="menu-item">Bienvenido, <span class="username">{{userLogged.username}}</span></li>
       <li class="menu-item"><a href="/auth/edit">Edit your user</a></li>
-      <li class="menu-item"><a href="/auth/logout" >Logout</a></li>
-       <li class="menu-item"><a href="/" >home</a></li>
-      </ul>
-      {{else }}
-      <ul class="menu-items">
-        <li class="menu-item"> <a href="/auth/login" >Login</a></li>
-        <li class="menu-item"><a href="/auth/signup" >Signup</a></li>
-        <li class="menu-item"><a href="/auth/github" > <i class="fab fa-github"></i> Login With Github</a></li>
-      </ul>
-      {{/if}}
-      </nav>
+      <li class="menu-item"><a href="/auth/logout">Logout</a></li>
+      <li class="menu-item"><a href="/">home</a></li>
+    </ul>
+    {{else }}
+    <ul class="menu-items">
+      <li class="menu-item"> <a href="/auth/login">Login</a></li>
+      <li class="menu-item"><a href="/auth/signup">Signup</a></li>
+      <li class="menu-item"><a href="/auth/github"> <i class="fab fa-github"></i> Login With Github</a></li>
+    </ul>
+    {{/if}}
+  </nav>
 
-      
-      
-        
-        
-         {{!-- <li><a href="/" class="Quick-navigation-item">Home</a></li> <li><a href="/" class="Quick-navigation-item">Home</a></li> --}}
-        {{!-- <nav>
+  <div class="page-content">
+    {{{body}}}
+  </div>
+
+  <footer>
+    <p> &copy; Nira & Rubén</p>
+  </footer>
+  {{!-- <li><a href="/" class="Quick-navigation-item">Home</a></li> <li><a href="/" class="Quick-navigation-item">Home</a></li> --}}
+  {{!-- <nav>
           <a href="/snippets">All snippets</a>
           <a href="/snippets/new">New snippet</a>
         </nav>
@@ -60,266 +73,12 @@
         <a href="/boards/new">New board</a>
       </nav> --}}
 
-      {{{body}}}
-      {{!-- <a href="/snippets/new">New snippet</a> --}}
 
-      <script src="/javascripts/script.js"></script>
+  {{!-- <a href="/snippets/new">New snippet</a> --}}
 
-      </script>
-
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/addon/edit/closebrackets.js.map">
-
-      </script>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.3/lodash.min.js"
-        integrity="sha384-jsG12NEMqgAmlKLBiSdTZPy1CbxTUU2AykyyLMKaLCAIvk1bAmNXGkZ5pnJHmO/l"
-        crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/codemirror.min.js"
-        integrity="sha384-hoB2ZofsVhMdfGMWAUv7PlNjtUTmqLg4WLPWTZCOFl7H/Jig3OnOutQdW7if3B0q"
-        crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/clike/clike.min.js"
-        integrity="sha384-8+bTF1tFTP2p6v5mvLYGHHXlsP1vvv2VZ1G9m7ItQ0h9cmnSkLjMu1MU0awC2Vnp"
-        crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/pegjs/pegjs.min.js"
-        integrity="sha384-ydJmJY1nFH/5/OUYmAXyo+B/XKfnymKtFz+GaYG+84yf2sWTKwnErWnSxoZc+ob7"
-        crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/mode/javascript/javascript.min.js"
-        integrity="sha384-g7R5zn/n5KHtJr96K6OEZz4n/MzoKFsr9ncytZcrGoGw+xO1L1JtqjNg/zxLFEIP"
-        crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/css/css.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0/mode/xml/xml.min.js"></script>
-
-
-
-
-
-      <script>
-
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-          lineNumbers: true,
-          styleActiveLine: true,
-          matchBrackets: true,
-          theme: "dracula",
-        });
-
-        editor.setOption("mode", "xml")
-
-        function changeMode(mode) {
-          let selectValue = mode.value
-          switch (selectValue) {
-            case "HTML":
-              editor.setOption("mode", "xml")
-              break
-            case "CSS":
-              editor.setOption("mode", "css")
-              break
-            case "JS":
-              editor.setOption("mode", "javascript")
-              break
-          }
-        }
-
-
-
-      </script>
-
-
+  <script src="/javascripts/script.js"></script>
 
 
 </body>
 
 </html>
- 
-
-
-
-
-
-
-
-
-  
-
-  
- 
- 
-  
-  
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const Snippet = require("../models/Snippet");
 const Board = require("../models/Board");
 
@@ -10,7 +10,6 @@ router.get('/', (req, res, next) => {
     .populate("creator")
     .then(snippets => res.render("index", { snippets }))
     .catch(error => console.log(error))
-
 });
 
 module.exports = router;

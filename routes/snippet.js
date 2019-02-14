@@ -1,8 +1,6 @@
 const express = require("express");
 const passport = require('passport');
 const router = express.Router();
-const multer = require("multer")
-const upload = multer({ dest: "./public/uploads" })
 const Snippet = require("../models/Snippet");
 const Board = require("../models/Board");
 const ensureLogin = require("connect-ensure-login")
@@ -23,26 +21,14 @@ router.get("/new", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, next) =
 
 })
 
-router.post("/new", ensureLogin.ensureLoggedIn("/auth/login"), upload.single("image"), (req, res, next) => {
+router.post("/new", ensureLogin.ensureLoggedIn("/auth/login"), (req, res, next) => {
   const { title, language, code, description, source, board } = req.body
-  let picPath
-  let picName
-  if (req.file) {
-    picPath = `/uploads/${req.file.filename}`
-    picName = req.file.originalname
-  } else {
-    picPath = ""
-    picName = ""
-  }
+
   const newSnippet = new Snippet({
     title,
     language,
     code,
     description,
-    pic: {
-      picPath,
-      picName
-    },
     source,
     creator: req.user._id,
     board
@@ -81,34 +67,16 @@ router.post("/:id/createdby/:creatorID/edit", ensureLogin.ensureLoggedIn("/auth/
   if (req.params.creatorID == req.session.passport.user) {
     let { title, language, code, description, source, board } = req.body
 
-    if (req.file) {
-      let picPath = `/uploads/${req.file.filename}`
-      let picName = req.file.originalname
+    Snippet.findByIdAndUpdate(req.params.id, {
+      title,
+      language,
+      code,
+      description,
+      source,
+      board
+    }).then(res.redirect("/snippets/" + req.params.id))
+      .catch(error => console.log())
 
-      Snippet.findByIdAndUpdate(req.params.id, {
-        title,
-        language,
-        code,
-        description,
-        pic: {
-          picPath,
-          picName
-        },
-        source,
-        board
-      }).then(res.redirect("/snippets/" + req.params.id))
-        .catch(error => console.log())
-    } else {
-      Snippet.findByIdAndUpdate(req.params.id, {
-        title,
-        language,
-        code,
-        description,
-        source,
-        board
-      }).then(res.redirect("/snippets/" + req.params.id))
-        .catch(error => console.log())
-    }
   } else {
     res.redirect("/auth/login")
   }
