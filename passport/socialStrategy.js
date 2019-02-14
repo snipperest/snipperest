@@ -11,6 +11,7 @@ passport.use(new GithubStrategy({
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   callbackURL: `${process.env.HOST}/auth/github/callback`
 }, (accessToken, refreshToken, profile, done) => {
+  console.log(profile)
   User.findOne({ GitHubId: profile.id })
     .then(user => {
       console.log(profile)

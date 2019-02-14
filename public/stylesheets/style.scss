@@ -1,8 +1,76 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+*{
+  box-sizing: content-box;
 }
 
-a {
-  color: #00B7FF;
+body{
+    background-color: rgb(231, 231, 231);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Source Sans Pro', sans-serif;}
+
+.menu{
+  padding: 20px 50px;
+  background-color: #31352E;
+  display:flex;
+  justify-content:space-between;
+  font-weight: 700;
+
+}    
+
+.logo{
+  width: 150px;
+  height: auto;
+
+}
+.menu-items{
+
+}
+
+.menu-item{
+  display: inline;
+  list-style: none;
+  margin-left: 10px;
+  color: #ccc;
+ 
+}
+ .menu-item a{
+  text-decoration: none;
+  color:#ccc;
+}
+
+.menu-item .fa-github{
+  font-size: 1.2em;
+}
+
+.username{
+  color:#7BB813;
+}
+
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+h3{
+
+}
+
+.card-language{
+  
+}
+.card-creator{
+
+}
+.open-snippets{
+
+}
+
+a{
+  text-decoration: none;
+  color:#ccc;
 }

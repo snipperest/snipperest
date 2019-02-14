@@ -5,7 +5,11 @@
 {{/if}}
 <p>Language: {{snippet.language}}</p>
 <p>Description: {{snippet.description}}</p>
-<p>Code: {{snippet.code}}</p>
+<p>Code: </p>
+<textarea name="code" id="code"  cols="30" rows="10">
+  {{snippet.code}}
+</textarea>
+ 
 <p>Board: {{snippet.board.name}}</p>
 {{#if snippet.source}}
 <p>Source: <a href="{{snippet.source}}">{{snippet.source}}</a></p>

@@ -15,48 +15,53 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/theme/dracula.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/codemirror.min.css"
-    integrity="sha384-Emjcn3QHkP2VdU4RooUiFc08IB3MxUhOIKysa338K0FaWAVuskkkLe7eNkXso/YH" crossorigin="anonymous">
-  <link rel="shortcut icon" type="/image/png" href="/images/snipperest.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.22.0/codemirror.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  
 
 </head>
 
 <body>
-  {{#if userLogged}}
-  <p>Bienvenido, {{userLogged.username}}</p>
-  {{/if}}
-
-  <nav>
-    <a href="/">Home</a>
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
-    <a href="/auth/logout">Logout</a>
-    <a href="/auth/edit">Edit your user</a>
+  
 
 
-    <nav>
-      <ul class="Quick-navigation">
-        <li><a href="/" class="Quick-navigation-item">Home</a></li>
-        <li> <a href="/auth/login" class="Quick-navigation-item">Login</a></li>
-        <li><a href="/auth/signup" class="Quick-navigation-item">Signup</a></li>
-        <li><a href="/auth/logout" class="Quick-navigation-item">Logout</a></li>
+
+    <nav class="menu"> 
+      <div class="logo-container">
+        <img src="images/logo-completo-claro.png" alt="" class="logo">
+      </div>
+      {{#if userLogged}}
+      <ul class="menu-items">
+       <li class="menu-item">Bienvenido, <span class="username">{{userLogged.username}}</span></li> 
+      <li class="menu-item"><a href="/auth/edit">Edit your user</a></li>
+      <li class="menu-item"><a href="/auth/logout" >Logout</a></li>
+       <li class="menu-item"><a href="/" >home</a></li>
       </ul>
+      {{else }}
+      <ul class="menu-items">
+        <li class="menu-item"> <a href="/auth/login" >Login</a></li>
+        <li class="menu-item"><a href="/auth/signup" >Signup</a></li>
+        <li class="menu-item"><a href="/auth/github" > <i class="fab fa-github"></i> Login With Github</a></li>
+      </ul>
+      {{/if}}
+      </nav>
 
-
-
-      <br>
-
-      <nav>
-        <nav>
+      
+      
+        
+        
+         {{!-- <li><a href="/" class="Quick-navigation-item">Home</a></li> <li><a href="/" class="Quick-navigation-item">Home</a></li> --}}
+        {{!-- <nav>
           <a href="/snippets">All snippets</a>
           <a href="/snippets/new">New snippet</a>
         </nav>
         <br>
         <a href="/boards">All boards</a>
         <a href="/boards/new">New board</a>
-      </nav>
+      </nav> --}}
 
       {{{body}}}
+      {{!-- <a href="/snippets/new">New snippet</a> --}}
 
       <script src="/javascripts/script.js"></script>
 
@@ -125,3 +130,196 @@
 </body>
 
 </html>
+ 
+
+
+
+
+
+
+
+
+  
+
+  
+ 
+ 
+  
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
