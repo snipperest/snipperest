@@ -1,6 +1,13 @@
-
-
-<a href="/auth/github">Login With Slack</a>
-
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+<div class="card-container">
+  {{#each snippets}}
+   {{> snippetCard}}
+{{/each}}
+
+</div>
+
+
+
+

@@ -16,6 +16,7 @@ const flash = require("connect-flash");
 
 
 
+
 mongoose
   .connect(process.env.DBURL, { useNewUrlParser: true })
   .then(x => {
@@ -46,6 +47,10 @@ app.use(require('node-sass-middleware')({
 
 
 app.set('views', path.join(__dirname, 'views'));
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
+
+// default value for title local
+app.locals.title = 'Snipperest';
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
@@ -62,8 +67,6 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 });
 
 
-// default value for title local
-app.locals.title = 'Snipperest';
 
 
 // Enable authentication using session + passport

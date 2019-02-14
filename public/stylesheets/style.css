@@ -8,9 +8,43 @@ body {
   list-style: none;
   text-decoration: none;
   border: none;
-  outline: none; }
+  outline: none;
+  font-family: 'Source Sans Pro', sans-serif; }
 
-.logoPrincipal {
-  margin: 20px; }
+.menu {
+  padding: 20px 50px;
+  background-color: #31352E;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700; }
+
+.logo {
+  width: 150px;
+  height: auto; }
+
+.menu-item {
+  display: inline;
+  list-style: none;
+  margin-left: 10px;
+  color: #ccc; }
+
+.menu-item a {
+  text-decoration: none;
+  color: #ccc; }
+
+.menu-item .fa-github {
+  font-size: 1.2em; }
+
+.username {
+  color: #7BB813; }
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
+a {
+  text-decoration: none;
+  color: #ccc; }
 
 /*# sourceMappingURL=style.css.map */
