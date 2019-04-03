@@ -2,13 +2,13 @@
 ![logo](public/images/logo-completo.png)
 
 ## Description
-Snipperest is a code snippets manager which allows the users to create and organize their code snippets, and discover new snippets from other users.
+Snipperest is a code snippets manager which allows the users to create and organize their code snippets and discover new snippets from other users.
 
 ## Technologies used
 The following technologies which were used in this app:
 
 ### Backend
-- **Node.js** as a run-time enviroment.
+- **Node.js** as a run-time environment.
 - **Express** as a web framework.
 - **Passport** as an authentication middleware.
 - **Handlebars** as a templating engine.
